@@ -1,0 +1,164 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    --clock-size:calc(var(--window-height) - 100px);
+    --inner-clock-size:calc(var(--clock-size) - 20px);
+    --cover-cicrle-size:calc(var(--inner-clock-size) - 70px);
+}
+
+@mixin posAbsCenter {
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+}
+
+@mixin flexCenter {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background:#240229;
+    width:100%;
+    height:var(--window-height);
+    overflow:hidden;
+
+    @include flexCenter();
+
+    .outer-ring {
+        background:#be0101;
+        width:var(--clock-size);
+        height:var(--clock-size); 
+        border-radius:50%;
+        position:relative;
+
+        span {
+            position:absolute;
+            border-radius:50%;
+            top:0px;
+            bottom:0px;
+            left:0px;
+            right:0px;
+            animation: rotate 3s linear forwards infinite;
+            background:linear-gradient(#33FF38,#FF0000,#0021FF);
+        }   
+
+        span:nth-child(1) {
+            filter:blur(5px);
+        }
+        span:nth-child(2) {
+            filter:blur(10px);
+        }
+        span:nth-child(3) {
+            filter:blur(15px);
+        }
+        span:nth-child(4) {
+            filter:blur(60px);
+        }
+       
+        @include flexCenter();
+        .inner-ring {
+            background-color: black;
+            border-radius:50%;
+            width:var(--inner-clock-size);
+            height:var(--inner-clock-size);
+            position:relative;
+            display:flex;
+            @include flexCenter();
+            .hLines {
+                width:100%;
+                height:100%;
+                position:relative;
+                .hLine {
+                    position:absolute;
+                    top:50%;
+                
+                    left:50%;
+                    transform-origin:left;
+                    background:#ffffff;
+                    width:calc(calc(var(--inner-clock-size) / 2) - 10px);
+                    height:5px;
+                    z-index:1;
+                }
+              
+                .hLineCover {
+                    position:absolute;
+                    transform-origin: center;
+                    background-color:black;
+                    @include posAbsCenter();
+                    width:calc(var(--inner-clock-size) - 70px);
+                    height:calc(var(--inner-clock-size) - 70px);
+                    z-index:2;
+
+                    .hourIndc {
+                        border-radius:25%;
+                        position:absolute;
+                        width:10px;
+                        height:calc(var(--cover-cicrle-size) / 2 - 180px);
+                        background: red;
+                        transform-origin: bottom;
+                        top:50%;
+                        left:50%;
+                        
+                    }
+
+                    .secIndc {
+                        position:absolute;
+                        width:2px;
+                        height:calc(var(--cover-cicrle-size) / 2 - 60px);
+                        background: red;
+                        transform-origin: bottom;
+                        top:50%;
+                        left:50%;
+                        
+                    }
+
+                    .minuteIndc {
+                        border-radius:50%;
+                        position:absolute;
+                        width:5px;
+                        height:calc(var(--cover-cicrle-size) / 2 - 90px);
+                        background: red;
+                        transform-origin: bottom;
+                        top:50%;
+                        left:50%;
+                        
+                    }
+                    .dot {
+                        position:absolute;
+                        width:20px;
+                        height:20px;
+                        background-color: red;
+                        border-radius: 50%;
+                        top:50%;
+                        left:50%;
+                        transform:translate(-50%,-50%);
+                    }
+
+                }
+
+            }
+            
+
+        }
+    }
+}
+
+.num-indicator {
+    /* color:rgb(227, 0, 248); */
+    font-size:40px;
+    color:#ffffff;
+ 
+}
+
+@keyframes rotate {
+    from{
+        transform:rotate(0);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}

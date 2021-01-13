@@ -1,0 +1,202 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  --clock-size:calc(var(--window-height) - 100px);
+  --inner-clock-size:calc(var(--clock-size) - 20px);
+  --cover-cicrle-size:calc(var(--inner-clock-size) - 70px);
+}
+
+body {
+  background: #240229;
+  width: 100%;
+  height: var(--window-height);
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .outer-ring {
+  background: #be0101;
+  width: var(--clock-size);
+  height: var(--clock-size);
+  border-radius: 50%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .outer-ring span {
+  position: absolute;
+  border-radius: 50%;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  -webkit-animation: rotate 3s linear forwards infinite;
+          animation: rotate 3s linear forwards infinite;
+  background: -webkit-gradient(linear, left top, left bottom, from(#33FF38), color-stop(#FF0000), to(#0021FF));
+  background: linear-gradient(#33FF38, #FF0000, #0021FF);
+}
+
+body .outer-ring span:nth-child(1) {
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+}
+
+body .outer-ring span:nth-child(2) {
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+}
+
+body .outer-ring span:nth-child(3) {
+  -webkit-filter: blur(15px);
+          filter: blur(15px);
+}
+
+body .outer-ring span:nth-child(4) {
+  -webkit-filter: blur(60px);
+          filter: blur(60px);
+}
+
+body .outer-ring .inner-ring {
+  background-color: black;
+  border-radius: 50%;
+  width: var(--inner-clock-size);
+  height: var(--inner-clock-size);
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .outer-ring .inner-ring .hLines {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+body .outer-ring .inner-ring .hLines .hLine {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  background: #ffffff;
+  width: calc(calc(var(--inner-clock-size) / 2) - 10px);
+  height: 5px;
+  z-index: 1;
+}
+
+body .outer-ring .inner-ring .hLines .hLineCover {
+  position: absolute;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  background-color: black;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: calc(var(--inner-clock-size) - 70px);
+  height: calc(var(--inner-clock-size) - 70px);
+  z-index: 2;
+}
+
+body .outer-ring .inner-ring .hLines .hLineCover .hourIndc {
+  border-radius: 25%;
+  position: absolute;
+  width: 10px;
+  height: calc(var(--cover-cicrle-size) / 2 - 180px);
+  background: red;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  top: 50%;
+  left: 50%;
+}
+
+body .outer-ring .inner-ring .hLines .hLineCover .secIndc {
+  position: absolute;
+  width: 2px;
+  height: calc(var(--cover-cicrle-size) / 2 - 60px);
+  background: red;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  top: 50%;
+  left: 50%;
+}
+
+body .outer-ring .inner-ring .hLines .hLineCover .minuteIndc {
+  border-radius: 50%;
+  position: absolute;
+  width: 5px;
+  height: calc(var(--cover-cicrle-size) / 2 - 90px);
+  background: red;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  top: 50%;
+  left: 50%;
+}
+
+body .outer-ring .inner-ring .hLines .hLineCover .dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.num-indicator {
+  /* color:rgb(227, 0, 248); */
+  font-size: 40px;
+  color: #ffffff;
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=style.css.map */
