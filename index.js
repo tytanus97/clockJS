@@ -25,9 +25,9 @@ initTick();
 
 function calculatePosition(degStep,radius,index) {
 
-    const angle = (((degStep) * (index) - 90) * Math.PI / 180);
-    const posx = Math.round((radius - 30) * Math.cos(angle))
-    const posy = Math.round((radius - 30) * Math.sin(angle))
+    const angle = (((degStep) * (index)) * Math.PI / 180);
+    const posx = Math.round((radius - 0.15 * radius) * Math.cos(angle))
+    const posy = Math.round((radius - 0.15 * radius) * Math.sin(angle))
   
     return {posx:posx,
         posy:posy};

@@ -3,9 +3,9 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  --clock-size:calc(var(--window-height) - 100px);
-  --inner-clock-size:calc(var(--clock-size) - 20px);
-  --cover-cicrle-size:calc(var(--inner-clock-size) - 70px);
+  --clock-size: calc(var(--window-height) - 100px);
+  --inner-clock-size: calc(var(--clock-size) - 20px);
+  --cover-cicrle-size: calc(var(--inner-clock-size) - 70px);
 }
 
 body {
@@ -50,8 +50,8 @@ body .outer-ring span {
   right: 0px;
   -webkit-animation: rotate 3s linear forwards infinite;
           animation: rotate 3s linear forwards infinite;
-  background: -webkit-gradient(linear, left top, left bottom, from(#33FF38), color-stop(#FF0000), to(#0021FF));
-  background: linear-gradient(#33FF38, #FF0000, #0021FF);
+  background: -webkit-gradient(linear, left top, left bottom, from(#33ff38), color-stop(#ff0000), to(#0021ff));
+  background: linear-gradient(#33ff38, #ff0000, #0021ff);
 }
 
 body .outer-ring span:nth-child(1) {
@@ -128,8 +128,8 @@ body .outer-ring .inner-ring .hLines .hLineCover {
 body .outer-ring .inner-ring .hLines .hLineCover .hourIndc {
   border-radius: 25%;
   position: absolute;
-  width: 10px;
-  height: calc(var(--cover-cicrle-size) / 2 - 180px);
+  width: 1vh;
+  height: calc(var(--cover-cicrle-size) / 7);
   background: red;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
@@ -140,7 +140,7 @@ body .outer-ring .inner-ring .hLines .hLineCover .hourIndc {
 body .outer-ring .inner-ring .hLines .hLineCover .secIndc {
   position: absolute;
   width: 2px;
-  height: calc(var(--cover-cicrle-size) / 2 - 60px);
+  height: calc(var(--cover-cicrle-size) / 2.9);
   background: red;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
@@ -152,7 +152,7 @@ body .outer-ring .inner-ring .hLines .hLineCover .minuteIndc {
   border-radius: 50%;
   position: absolute;
   width: 5px;
-  height: calc(var(--cover-cicrle-size) / 2 - 90px);
+  height: calc(var(--cover-cicrle-size) / 4);
   background: red;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
@@ -162,8 +162,8 @@ body .outer-ring .inner-ring .hLines .hLineCover .minuteIndc {
 
 body .outer-ring .inner-ring .hLines .hLineCover .dot {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 1vh;
+  height: 1vh;
   background-color: red;
   border-radius: 50%;
   top: 50%;
@@ -173,9 +173,9 @@ body .outer-ring .inner-ring .hLines .hLineCover .dot {
 }
 
 .num-indicator {
-  /* color:rgb(227, 0, 248); */
-  font-size: 40px;
+  font-size: 16px;
   color: #ffffff;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 @-webkit-keyframes rotate {
@@ -197,6 +197,64 @@ body .outer-ring .inner-ring .hLines .hLineCover .dot {
   to {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
+  }
+}
+
+@media (orientation: portrait) {
+  .num-indicator {
+    font-size: 5vw;
+  }
+  body .outer-ring .inner-ring .hLines .hLine {
+    height: .5%;
+  }
+  body .outer-ring .inner-ring .hLines .hLineCover {
+    height: 85%;
+    width: 85%;
+  }
+  body .outer-ring .inner-ring .hLines .hLineCover .secIndc {
+    width: .3%;
+    height: 35%;
+  }
+  body .outer-ring .inner-ring .hLines .hLineCover .hourIndc {
+    width: 1%;
+    height: 13%;
+  }
+  body .outer-ring .inner-ring .hLines .hLineCover .minuteIndc {
+    width: 1%;
+    height: 22%;
+  }
+  body .outer-ring .inner-ring .hLines .hLineCover .dot {
+    width: 2%;
+    height: 2%;
+  }
+}
+
+@media (orientation: landscape) {
+  .num-indicator {
+    font-size: 4vh;
+  }
+  body .outer-ring .inner-ring .hLines .hLine {
+    height: 1%;
+  }
+  body .outer-ring .inner-ring .hLines .hLineCover {
+    height: 80%;
+    width: 80%;
+  }
+  body .outer-ring .inner-ring .hLines .hLineCover .secIndc {
+    width: .3%;
+    height: 35%;
+  }
+  body .outer-ring .inner-ring .hLines .hLineCover .hourIndc {
+    width: 1%;
+    height: 13%;
+  }
+  body .outer-ring .inner-ring .hLines .hLineCover .minuteIndc {
+    width: 1%;
+    height: 22%;
+  }
+  body .outer-ring .inner-ring .hLines .hLineCover .dot {
+    width: 2%;
+    height: 2%;
   }
 }
 /*# sourceMappingURL=style.css.map */
